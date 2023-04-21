@@ -5,6 +5,8 @@ import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.JdbcTypeCode;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -20,4 +22,7 @@ public class Student {
 
     @Column(name = "name",columnDefinition = "VARCHAR(24)",nullable = false)
     private String name;
+
+    @OneToMany(mappedBy = "student")
+    private Set<Enrollment> enrollments = new HashSet<>();
 }

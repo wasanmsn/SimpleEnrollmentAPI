@@ -2,6 +2,7 @@ package com.wasan.student.service;
 
 import com.wasan.student.dto.response.EnrollmentDto;
 import com.wasan.student.entity.Enrollment;
+import com.wasan.student.entity.projection.StudentCourseProjection;
 import com.wasan.student.repository.EnrollmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,5 +27,10 @@ public class EnrollmentService implements EnrollmentServiceInterface {
             enrollmentDtos.add(new EnrollmentDto(enrollment.getStudent(),enrollment.getCourse(),enrollment.getEnrollmentDate()));
         }
         return enrollmentDtos;
+    }
+
+    @Override
+    public List<StudentCourseProjection> findAllStudentCourse() {
+        return repository.findAllStudentCourse();
     }
 }

@@ -3,6 +3,7 @@ package com.wasan.student.repository;
 import com.wasan.student.entity.Course;
 import com.wasan.student.entity.Enrollment;
 import com.wasan.student.entity.Student;
+import com.wasan.student.entity.projection.StudentCourseProjection;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -32,4 +33,6 @@ public class EnrollmentRepositoryImpl implements EnrollmentRepositoryCustom{
 
         return entityManager.createQuery(query).getResultList();
     }
+
+
 }

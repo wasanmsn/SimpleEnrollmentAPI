@@ -1,6 +1,7 @@
 package com.wasan.student.controller;
 
 import com.wasan.student.dto.response.EnrollmentDto;
+import com.wasan.student.entity.projection.StudentCourseProjection;
 import com.wasan.student.service.EnrollmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,5 +20,9 @@ public class EnrollmentsController {
     public List<EnrollmentDto> getEnrollmentsByStudentId(@PathVariable String id){
         return service.findByStudentIdUsingCriteria(id);
 
+    }
+    @GetMapping("students")
+    public List<StudentCourseProjection> getStudentCourse(){
+        return service.findAllStudentCourse();
     }
 }
